@@ -1,9 +1,7 @@
 version: "2"
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.web
+    build: .
     volumes:
       - ./src:/web/src
     ports:
@@ -11,8 +9,5 @@ services:
     command: npm start
   worker:
     build:
-      context: .
-      dockerfile: Dockerfile.eddn
-    volumes:
-      - ./src:/web/src
-    command: npm run start:worker
+      context: ./node_modules/node-eddn-listener/
+    command: npm run start

@@ -1,14 +1,13 @@
 {
   "name": "ed-sotu",
   "version": "1.0.0",
-  "description": "ED: STate of the Union",
+  "description": "ED: State of the Union",
   "author": "Kevin Peno <kevinpeno@gmail.com>",
-  "main": "./src/server.js",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "start:worker": "node ./src/worker.js",
+    "start": "node ./src/index.js",
+    "start:worker": "node ./node_modules/node-eddn-listener/src/index.js",
     "init": "rimraf .validate.json && rimraf .jshintrc",
-    "build": "echo \"no build system yet\"",
     "clean": "rimraf build",
     "clear": "node scripts/clearConsole.js",
     "lint": "eslint src test",
@@ -28,12 +27,8 @@
     "test"
   ],
   "dependencies": {
-    "es6-promisify": "^5.0.0",
     "express": "^4.15.2",
-    "lodash": "^4.17.4",
-    "memory-cache": "^0.1.6",
-    "nedb": "^1.8.0",
-    "zeromq": "^4.2.1"
+    "node-eddn-listener": "git+http://git@github.com/kevinpeno/node-eddn-listener.git#master"
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
